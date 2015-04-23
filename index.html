@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles/kendo.mobile.all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <script src="cordova.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/kendo.all.min.js"></script>
+    <script src="js/everlive.js"></script>
+
+    <script src="scripts/app.js"></script>
+
+</head>
+<body kendo-mobile-application k-hash-bang="true">
+
+    <kendo-mobile-layout k-id="'default'" ng-controller="homeController">
+    <kendo-mobile-header>
+        <kendo-mobile-nav-bar>
+            <kendo-view-title></kendo-view-title>
+            <kendo-mobile-button class="about-button" k-align="'right'" href="#!create">Add</kendo-mobile-button>
+        </kendo-mobile-nav-bar>
+     </kendo-mobile-header>
+
+           <kendo-mobile-footer ng-show="!isOnline || showSync">
+             <div align="center" class="footer" >
+                <div id="status-offline" class="status-offline" ng-show="!isOnline">
+                    You are working <strong>offline</strong>
+                </div>
+                <div id="status-synchronizing" class="status-offline" ng-show="isSyncing && showSync">
+                    Synchronizing data...
+                </div>
+                <div id="status-synchronizing-done" class="status-offline" ng-show="!isSyncing && showSync">
+                    Synchronization completed.
+                </div>
+            </div>
+        </kendo-mobile-footer>
+    </kendo-mobile-layout>
+
+    <kendo-mobile-layout k-id="'modalLayout'">
+    <kendo-mobile-header>
+        <kendo-mobile-nav-bar>
+            <kendo-view-title></kendo-view-title>
+            <kendo-mobile-button class="about-button" k-align="'right'" href="#!home">Cancel</kendo-mobile-button>
+        </kendo-mobile-nav-bar>
+     </kendo-mobile-header>
+    </kendo-mobile-layout>
+
+    <kendo-mobile-view id="home" ng-controller="homeController" k-title="'Customers'" k-layout="'default'">
+          <kendo-mobile-list-view id="featured" class="item-list" k-data-source="customerService.dataSource">
+             <div k-template>{{dataItem.ContactName}}</div>
+        </kendo-mobile-list-view>
+    </kendo-mobile-view>
+
+    <kendo-mobile-view id="create" k-title="'Create customer'" ng-controller="addController" k-layout="'modalLayout'">
+              <kendo-mobile-list-view>
+                    <li><label for="username">Name: <input type="text" id="name" ng-model="newCustomer.ContactName"/></label></li>
+                    <li><label for="password">Title: <input type="text" id="title" ng-model="newCustomer.ContactTitle"/></label></li>
+                    <li><label for="password">Company: <input type="text" id="company" ng-model="newCustomer.CompanyName" /></label></li>
+                    <li><label for="password">City: <input type="text" id="city" ng-model="newCustomer.City" /></label></li>
+             </kendo-mobile-list-view>
+        <kendo-mobile-button k-on-click="createNew(newCustomer);">Add new customer</kendo-mobile-button>
+    </kendo-mobile-view>
+
+</body>
+</html>

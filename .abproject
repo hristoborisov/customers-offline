@@ -1,0 +1,46 @@
+{
+  "ProjectName": "Customers",
+  "ProjectGuid": "f1aaca4f-8215-4b9b-9950-6f3183f30457",
+  "projectVersion": 1,
+  "AppIdentifier": "com.xevica.grajdanite",
+  "DisplayName": "Customers",
+  "Author": "",
+  "Description": "",
+  "BundleVersion": "1.0",
+  "AndroidVersionCode": "1",
+  "iOSDeviceFamily": [
+    "1",
+    "2"
+  ],
+  "iOSBackgroundMode": [],
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "3.5.0",
+  "AndroidPermissions": [],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "AndroidHardwareAcceleration": "false",
+  "iOSStatusBarStyle": "Default",
+  "Framework": "Cordova",
+  "WP8TileTitle": "",
+  "WP8Publisher": "",
+  "WP8Capabilities": [],
+  "WP8Requirements": [],
+  "WP8PublisherID": "{aef07bfe-4f44-4781-bc15-9a372d07e5c5}",
+  "WP8ProductID": "{9929decd-c03e-44dd-8058-5c7a30bdd5c5}",
+  "WPSdk": "8.0",
+  "WP8PackageIdentityName": "1234Telerik.ngproj",
+  "WP8WindowsPublisherName": "CN=Telerik",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ],
+  "CorePlugins": [
+    "org.apache.cordova.device",
+    "org.apache.cordova.file",
+    "org.apache.cordova.network-information",
+    "org.apache.cordova.statusbar"
+  ]
+}
