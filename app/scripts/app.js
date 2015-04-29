@@ -33,7 +33,7 @@ app.config( [
 //customerService that exposes a Kendo UI data source for Customers
 app.service('customerService', ['everliveService', function (everliveService) {
 
-    this.dataSource = everliveService.getDataSource("Customers", { autoSync: true });
+    this.dataSource = everliveService.getDataSource("CustomersSQL", { autoSync: true });
 
     this.create = function (customer) {
         this.dataSource.add(customer);
@@ -48,26 +48,31 @@ app.service('everliveService', ['$rootScope', function ($rootScope) {
         apiKey: 'ChGozz6pHwKNAxVi',
         scheme: 'https',
         offlineStorage: {
-            provider: {
-                type: Everlive.Constants.StorageProviders.LocalStorage
+            storage: {
+                provider: Everlive.Constants.StorageProviders.LocalStorage
             }
         }
     });
     
-    //making sure the 
-    this.el.offline(navigator.connection.type == 'none');
+    //making sure the
+    if (navigator.connection.type == 'none') {
+        this.el.offline();
+    }
+    else {
+        this.el.online();
+    }
 
     this.getDataSource = function (contentType, options) {
         return this.el.getKendoDataSource(contentType, options);
     }
 
     this.goOnline = function () {
-        this.el.offline(false);
+        this.el.online();
         this.el.sync();
     }
 
     this.goOffline = function () {
-        this.el.offline(true);
+        this.el.offline();
     }
 
     this.isSyncing = function () {

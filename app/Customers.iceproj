@@ -25,15 +25,15 @@
     <Content Include=".abproject" />
     <Content Include=".debug.abproject" />
     <Content Include=".release.abproject" />
+    <Content Include="js\everlive.all.min.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="scripts\app.js" />
     <Content Include="cordova.android.js" />
     <Content Include="cordova.ios.js" />
     <Content Include="cordova.wp8.js" />
     <Content Include="index.html" />
     <Content Include="js\angular.min.js">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="js\everlive.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="js\jquery.min.js">
